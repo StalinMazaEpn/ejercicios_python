@@ -1,0 +1,46 @@
+import random
+from time import time 
+
+def tres_menores(lista):
+    temp = lista[1:4]    #funcion que me hace los tres menores
+    #print("\t\t        ",temp)          #para esto le mando la lista con valores ordenados
+    return temp
+
+def tres_mayores(lista):
+    temp = lista[1:4]          #funcion que me hace los tres menores
+    #print("\t\t\t\t       ",temp)             #para esto le mando la lista con valores ordenados
+    return temp
+    
+def generar(cantidad,min,max):
+    numeros = []
+    while len(numeros) < cantidad:
+        numero = random.randint(min, max)
+        if not numero in numeros:
+            numeros.append(numero)
+    #print(random.randrange(0, 101, 1)) #Las opciones son (0, 2, 4, 6, 8, 10)      
+    return numeros
+
+def generar2(cantidad,min,max):
+    numeros = []
+    while len(numeros) < cantidad:
+        numero = random.randint(min, max)
+        numeros.append(numero)         
+    return numeros
+
+def main():
+    orden = []
+    #inicio = time()
+    print("\t\tStalin Maza - Algoritmos Fundamentales\n")
+    print("N","\t Tiempo de Ejecucion")
+    for i in range(10000,100000,10000):
+        inicio = time()
+        lista = generar2(i,10000,100000)
+        tres_menores(sorted(lista))
+        tres_mayores(sorted(lista, reverse = True))
+        final = time()
+        print(i ,"\t",final - inicio)
+        #print("________________________________________________________________")
+        #print(i,"\t",final - inicio,"\t",menor,"\t",mayor)
+    
+    
+main()
